@@ -1,3 +1,4 @@
+using Backend.Core;
 using Backend.Core.Middleware;
 using Backend.Infrastructure;
 using Backend.Infrastructure.Context;
