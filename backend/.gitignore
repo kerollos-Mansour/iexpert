@@ -1,0 +1,14 @@
+[Aa]pp_Data/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Tt]estResult/
+[Tt]mp/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+appsettings.Development.json
+*.db

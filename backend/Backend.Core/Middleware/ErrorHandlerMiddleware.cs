@@ -1,0 +1,64 @@
+using FluentValidation;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Text.Json;
+using Backend.Core.ResponseBases;
+
+namespace Backend.Core.Middleware
+{
+    public class ErrorHandlerMiddleware
+    {
+        private readonly RequestDelegate _next;
+
+        public ErrorHandlerMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public async Task Invoke(HttpContext context)
+        {
+            try
+            {
+                await _next(context);
+            }
+            catch (Exception error)
+            {
+                var response = context.Response;
+                response.ContentType = "application/json";
+                var responseModel = new Response<string>() { Succeeded = false, Message = error.Message };
+                
+                switch (error)
+                {
+                    case UnauthorizedAccessException:
+                        responseModel.StatusCode = HttpStatusCode.Unauthorized;
+                        response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                        break;
+
+                    case ValidationException:
+                        responseModel.StatusCode = HttpStatusCode.BadRequest;
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+
+                    case KeyNotFoundException:
+                        responseModel.StatusCode = HttpStatusCode.NotFound;
+                        response.StatusCode = (int)HttpStatusCode.NotFound;
+                        break;
+
+                    case DbUpdateException:
+                        responseModel.StatusCode = HttpStatusCode.BadRequest;
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+
+                    default:
+                        responseModel.StatusCode = HttpStatusCode.InternalServerError;
+                        response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        break;
+                }
+                
+                var result = JsonSerializer.Serialize(responseModel);
+                await response.WriteAsync(result);
+            }
+        }
+    }
+}
