@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using Backend.Infrastructure.implementation;
+using Backend.Infrastructure.Repositories;
 using Backend.Infrastructure.GenericBases;
 
 namespace Backend.Infrastructure
@@ -9,7 +11,9 @@ namespace Backend.Infrastructure
         {
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
             
-            // Add other repositories here
+            services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<IInstructorRepository, InstructorRepository>();
+            services.AddTransient<IEnrollmentRepository, EnrollmentRepository>();
             
             return services;
         }

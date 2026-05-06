@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using Backend.Service.Abstractions;
+using Backend.Service.implementation;
 
 namespace Backend.Service
 {
@@ -6,7 +8,9 @@ namespace Backend.Service
     {
         public static IServiceCollection AddServiceDependencies(this IServiceCollection services)
         {
-            // Register application services here
+            services.AddTransient<ICourseService, CourseService>();
+            services.AddTransient<IInstructorService, InstructorService>();
+            services.AddTransient<IEnrollmentService, EnrollmentService>();
             
             return services;
         }
