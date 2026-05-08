@@ -1,0 +1,234 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-hero',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-orb orb1"></div>
+        <div class="hero-orb orb2"></div>
+        <div class="hero-orb orb3"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">🚀 iExperts Academy</div>
+        <h1 class="hero-title">
+          Learn. Build. <span class="gradient-text">Grow.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Master the technologies that power tomorrow's world. Expert-led courses
+          designed for the next generation of tech leaders.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">500+</span>
+            <span class="stat-label">Students</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-value">20+</span>
+            <span class="stat-label">Courses</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-value">15+</span>
+            <span class="stat-label">Expert Instructors</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#enroll" class="btn-primary">
+            Start Learning Free
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#courses" class="btn-secondary">
+            Browse Courses
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card floating">
+          <div class="card-header-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <div class="code-lines">
+            <div class="code-line"><span class="kw">const</span> <span class="fn">future</span> = <span class="str">"yours"</span>;</div>
+            <div class="code-line"><span class="kw">let</span> skills = [<span class="str">"Angular"</span>, <span class="str">".NET"</span>];</div>
+            <div class="code-line"><span class="fn">academy</span>.<span class="fn">enroll</span>(<span class="str">"today"</span>);</div>
+            <div class="code-line"><span class="cmt">// 🚀 Your career starts here</span></div>
+          </div>
+        </div>
+        <div class="badge-floating badge1">✅ Certified</div>
+        <div class="badge-floating badge2">⭐ 4.9 Rating</div>
+      </div>
+    </section>
+  `,
+  styles: [`
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 4rem 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+    }
+    .orb1 { width: 600px; height: 600px; background: radial-gradient(circle, #6366f1, transparent); top: -200px; left: -200px; animation: float 8s ease-in-out infinite; }
+    .orb2 { width: 400px; height: 400px; background: radial-gradient(circle, #8b5cf6, transparent); bottom: -100px; right: -100px; animation: float 10s ease-in-out infinite reverse; }
+    .orb3 { width: 300px; height: 300px; background: radial-gradient(circle, #06b6d4, transparent); top: 50%; right: 30%; animation: float 6s ease-in-out infinite 2s; }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(99,102,241,0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(99,102,241,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(99,102,241,0.15);
+      border: 1px solid rgba(99,102,241,0.3);
+      color: #a5b4fc;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      align-items: center;
+    }
+    .stat-item { text-align: center; }
+    .stat-value { display: block; font-size: 1.8rem; font-weight: 800; color: #fff; }
+    .stat-label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+    .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(99,102,241,0.6); }
+    .btn-arrow { transition: transform 0.3s; }
+    .btn-primary:hover .btn-arrow { transform: translateX(4px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(99,102,241,0.5); }
+    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(20px);
+      width: 340px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .card-header-bar { display: flex; gap: 6px; margin-bottom: 1.2rem; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ff5f57; }
+    .dot.yellow { background: #febc2e; }
+    .dot.green { background: #28c840; }
+    .code-lines { display: flex; flex-direction: column; gap: 0.7rem; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+    .code-line { color: rgba(255,255,255,0.8); }
+    .kw { color: #c792ea; }
+    .fn { color: #82aaff; }
+    .str { color: #c3e88d; }
+    .cmt { color: #546e7a; }
+    .floating { animation: heroFloat 4s ease-in-out infinite; }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .badge-floating {
+      position: absolute;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+    .badge1 { top: 10%; left: -10%; animation: floatBadge 3s ease-in-out infinite; }
+    .badge2 { bottom: 15%; right: -5%; animation: floatBadge 3s ease-in-out infinite 1.5s; }
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 6rem 2rem 3rem; text-align: center; gap: 3rem; }
+      .hero-subtitle { max-width: 100%; }
+      .hero-stats { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { display: none; }
+    }
+  `]
+})
+export class HeroComponent {}
