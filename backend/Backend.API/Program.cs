@@ -16,6 +16,18 @@ namespace Backend.API
 
             // Add services to the container.
             builder.Services.AddControllers();
+
+            #region CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngular", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+            #endregion
             
             #region Swagger
             builder.Services.AddEndpointsApiExplorer();
@@ -52,6 +64,7 @@ namespace Backend.API
             }
 
             app.UseMiddleware<ErrorHandlerMiddleware>();
+            app.UseCors("AllowAngular");
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
