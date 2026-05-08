@@ -9,6 +9,26 @@ By leveraging a powerful **.NET 10** backend and a high-end **Angular 21** inter
 
 ---
 
+## ⚡ Quick Start
+
+Open **two terminals** from the root of the project:
+
+**Terminal 1 — Backend:**
+```bash
+dotnet run --project backend/Backend.API/Backend.API.csproj
+```
+> Runs on `http://localhost:5085` — Swagger UI available at `http://localhost:5085/swagger`
+
+**Terminal 2 — Frontend:**
+```bash
+cd frontend
+npm install   # first time only
+npm start
+```
+> Runs on `http://localhost:4200`
+
+---
+
 ## ✨ Key Features
 
 - **🎯 Dynamic Data (GET):** Real-time fetching of Courses, Instructors, and Testimonials via optimized **GET** endpoints.
