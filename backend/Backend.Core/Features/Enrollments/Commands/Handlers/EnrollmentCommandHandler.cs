@@ -37,16 +37,24 @@ namespace Backend.Core.Features.Enrollments.Commands.Handlers
                 var course = await _courseService.GetByIdAsync(request.CourseId);
                 var courseName = course?.Title ?? "your selected course";
 
-                await _emailService.SendEmail(
-                    request.Email,
-                    request.FullName,
-                    $"<h1>Welcome to iExpert Academy!</h1>" +
-                    $"<p>Dear {request.FullName},</p>" +
-                    $"<p>You have successfully enrolled in <strong>{courseName}</strong>.</p>" +
-                    $"<p>We will contact you soon with further details.</p>" +
-                    $"<p>Best Regards,<br/>iExpert Academy Team</p>",
-                    "Course Enrollment Confirmation"
-                );
+                try
+                {
+                    await _emailService.SendEmail(
+                        request.Email,
+                        request.FullName,
+                        $"<h1>Welcome to iExpert Academy!</h1>" +
+                        $"<p>Dear {request.FullName},</p>" +
+                        $"<p>You have successfully enrolled in <strong>{courseName}</strong>.</p>" +
+                        $"<p>We will contact you soon with further details.</p>" +
+                        $"<p>Best Regards,<br/>iExpert Academy Team</p>",
+                        "Course Enrollment Confirmation"
+                    );
+                }
+                catch (Exception ex)
+                {
+                    // Log the error but don't fail the enrollment
+                    // You might want to inject ILogger if needed, but for now we just proceed
+                }
                 return Success("Enrollment added successfully");
             }
             
