@@ -1,6 +1,7 @@
 using Backend.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Backend.Infrastructure.Seeding;
 
 namespace Backend.Infrastructure.Context
 {
@@ -21,11 +22,6 @@ namespace Backend.Infrastructure.Context
             
             // Apply configurations from assembly
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
-
-            // Seed Data
-            CourseSeeder.Seed(modelBuilder);
-            InstructorSeeder.Seed(modelBuilder);
-            TestimonialSeeder.Seed(modelBuilder);
         }
     }
 }

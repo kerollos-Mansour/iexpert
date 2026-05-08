@@ -14,6 +14,7 @@ namespace Backend.Infrastructure
             // Run seeders
             await new CourseSeeder(context).SeedAsync();
             await new InstructorSeeder(context).SeedAsync();
+            await new TestimonialSeeder(context).SeedAsync();
         }
     }
 }
