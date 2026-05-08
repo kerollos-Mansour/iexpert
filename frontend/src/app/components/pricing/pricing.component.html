@@ -1,0 +1,27 @@
+<section class="pricing-section" id="pricing">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">💎 Pricing</span>
+      <h2 class="section-title">Simple, <span class="gradient-text">Transparent Pricing</span></h2>
+      <p class="section-subtitle">Choose the plan that fits your learning goals. No hidden fees, ever.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card" *ngFor="let plan of plans" [class.popular]="plan.popular">
+        <div class="popular-badge" *ngIf="plan.popular">Most Popular ⭐</div>
+        <div class="plan-icon">{{ plan.icon }}</div>
+        <h3 class="plan-name">{{ plan.name }}</h3>
+        <div class="plan-price">
+          <span class="price-amount">{{ plan.price }}</span>
+          <span class="price-period" *ngIf="plan.period">{{ plan.period }}</span>
+        </div>
+        <p class="plan-desc">{{ plan.desc }}</p>
+        <ul class="plan-features">
+          <li *ngFor="let feature of plan.features">
+            <span class="check">✓</span> {{ feature }}
+          </li>
+        </ul>
+        <a href="#enroll" class="plan-btn" [class.plan-btn-primary]="plan.popular">{{ plan.cta }}</a>
+      </div>
+    </div>
+  </div>
+</section>
