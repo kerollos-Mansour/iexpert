@@ -13,6 +13,7 @@ namespace Backend.Infrastructure.Context
         public DbSet<Course> Courses { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +21,11 @@ namespace Backend.Infrastructure.Context
             
             // Apply configurations from assembly
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+            // Seed Data
+            CourseSeeder.Seed(modelBuilder);
+            InstructorSeeder.Seed(modelBuilder);
+            TestimonialSeeder.Seed(modelBuilder);
         }
     }
 }

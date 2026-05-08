@@ -14,6 +14,7 @@ namespace Backend.Infrastructure
             services.AddTransient<ICourseRepository, CourseRepository>();
             services.AddTransient<IInstructorRepository, InstructorRepository>();
             services.AddTransient<IEnrollmentRepository, EnrollmentRepository>();
+            services.AddTransient<ITestimonialRepository, TestimonialRepository>();
             
             return services;
         }
