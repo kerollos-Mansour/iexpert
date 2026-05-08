@@ -1,0 +1,35 @@
+<section class="courses-section" id="courses">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">📚 Our Courses</span>
+      <h2 class="section-title">Learn From <span class="gradient-text">Industry Experts</span></h2>
+      <p class="section-subtitle">Curated courses designed to take you from beginner to professional</p>
+    </div>
+    
+    <div class="loading-state" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Loading courses...</p>
+    </div>
+    
+    <div class="error-state" *ngIf="error && !loading">
+      <p>⚠️ Could not load courses. Please try again later.</p>
+    </div>
+    
+    <div class="courses-grid" *ngIf="!loading && !error">
+      <div class="course-card" *ngFor="let course of courses; let i = index">
+        <div class="course-card-header" [class]="'header-' + (i % 4)">
+          <span class="course-icon">{{ icons[i % icons.length] }}</span>
+          <span class="course-level-badge">{{ course.level || 'All Levels' }}</span>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-title">{{ course.title }}</h3>
+          <p class="course-description">{{ course.description }}</p>
+          <div class="course-footer">
+            <span class="course-price">{{ course.price ? (course.price | currency:'USD':'symbol':'1.0-0') : 'Free' }}</span>
+            <a href="#enroll" class="course-btn">Enroll →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
