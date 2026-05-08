@@ -23,12 +23,12 @@ By leveraging a powerful **.NET 10** backend and a high-end **Angular 21** inter
 ---
 
 > [!IMPORTANT]
-> ### 📧 Required: Email Configuration (SMTP)
-> To make the **Enrollment Confirmation Email** work, you must configure your SMTP settings in `backend/Backend.API/appsettings.json`:
-> 1. **Username:** Your Gmail address.
-> 2. **Password:** Use a **16-character App Password** (not your regular password). 
->    - Generate it here: [Google App Passwords](https://myaccount.google.com/apppasswords).
->    - *Requirement:* 2-Step Verification must be enabled on your Google account.
+> ### 📧 Email Confirmation — Working Feature (Credentials Required)
+> The email confirmation feature is **fully implemented** and working. However, the SMTP credentials were **intentionally left out** for security reasons.
+> To test it, open `backend/Backend.API/appsettings.json` and fill in your own Gmail credentials:
+> - **Username & FromEmail:** Your Gmail address.
+> - **Password:** A **16-character Gmail App Password** (not your regular password).
+>   - Generate one here: [Google App Passwords](https://myaccount.google.com/apppasswords) *(requires 2-Step Verification to be enabled).*
 
 
 ## 🛠️ Tech Stack
