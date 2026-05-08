@@ -45,6 +45,10 @@ namespace Backend.API
             builder.Services.AddInfrastructureDependencies();
             builder.Services.AddServiceDependencies();
             builder.Services.AddCoreDependencies();
+
+            var smtpSettings = new Backend.Data.Helpers.SmtpSettings();
+            builder.Configuration.GetSection("SMTP").Bind(smtpSettings);
+            builder.Services.AddSingleton(smtpSettings);
             #endregion
 
             #region Serilog

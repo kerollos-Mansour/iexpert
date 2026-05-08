@@ -10,10 +10,14 @@ namespace Backend.Core.Features.Enrollments.Commands.Handlers
         IRequestHandler<AddEnrollmentCommand, Response<string>>
     {
         private readonly IEnrollmentService _enrollmentService;
+        private readonly IEmailService _emailService;
+        private readonly ICourseService _courseService;
 
-        public EnrollmentCommandHandler(IEnrollmentService enrollmentService)
+        public EnrollmentCommandHandler(IEnrollmentService enrollmentService, IEmailService emailService, ICourseService courseService)
         {
             _enrollmentService = enrollmentService;
+            _emailService = emailService;
+            _courseService = courseService;
         }
 
         public async Task<Response<string>> Handle(AddEnrollmentCommand request, CancellationToken cancellationToken)
@@ -29,7 +33,22 @@ namespace Backend.Core.Features.Enrollments.Commands.Handlers
 
             var result = await _enrollmentService.CreateAsync(enrollment);
             if (result != null)
+            {
+                var course = await _courseService.GetByIdAsync(request.CourseId);
+                var courseName = course?.Title ?? "your selected course";
+
+                await _emailService.SendEmail(
+                    request.Email,
+                    request.FullName,
+                    $"<h1>Welcome to iExpert Academy!</h1>" +
+                    $"<p>Dear {request.FullName},</p>" +
+                    $"<p>You have successfully enrolled in <strong>{courseName}</strong>.</p>" +
+                    $"<p>We will contact you soon with further details.</p>" +
+                    $"<p>Best Regards,<br/>iExpert Academy Team</p>",
+                    "Course Enrollment Confirmation"
+                );
                 return Success("Enrollment added successfully");
+            }
             
             return BadRequest<string>("Failed to add enrollment");
         }

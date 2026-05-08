@@ -18,5 +18,10 @@ namespace Backend.Service.implementation
         {
             return await _courseRepository.GetTableNoTracking().ToListAsync();
         }
+        
+        public async Task<Course?> GetByIdAsync(int id)
+        {
+            return await _courseRepository.GetByIdAsync(id);
+        }
     }
 }

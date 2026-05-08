@@ -11,6 +11,7 @@ namespace Backend.Service
             services.AddTransient<ICourseService, CourseService>();
             services.AddTransient<IInstructorService, InstructorService>();
             services.AddTransient<IEnrollmentService, EnrollmentService>();
+            services.AddTransient<IEmailService, EmailService>();
             
             return services;
         }
