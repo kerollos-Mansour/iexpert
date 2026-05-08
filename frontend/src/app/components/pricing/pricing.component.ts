@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class PricingComponent {
   plans = [
     {
-      icon: '🌱',
+      icon: 'fa-solid fa-leaf',
       name: 'Starter',
       price: 'Free',
       period: '',
@@ -26,7 +26,7 @@ export class PricingComponent {
       ]
     },
     {
-      icon: '🚀',
+      icon: 'fa-solid fa-rocket',
       name: 'Professional',
       price: '$49',
       period: '/month',
@@ -42,7 +42,7 @@ export class PricingComponent {
       ]
     },
     {
-      icon: '🏆',
+      icon: 'fa-solid fa-trophy',
       name: 'Enterprise',
       price: '$99',
       period: '/month',

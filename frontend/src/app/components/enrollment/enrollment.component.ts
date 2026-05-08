@@ -24,19 +24,47 @@ export class EnrollmentComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
 
+  // Custom Dropdown State
+  courseDropdownOpen = false;
+  levelDropdownOpen = false;
+  selectedCourseName = 'Choose a course';
+  selectedLevelName = 'Select level';
+
+  toggleCourseDropdown() {
+    this.courseDropdownOpen = !this.courseDropdownOpen;
+    this.levelDropdownOpen = false;
+  }
+
+  toggleLevelDropdown() {
+    this.levelDropdownOpen = !this.levelDropdownOpen;
+    this.courseDropdownOpen = false;
+  }
+
+  selectCourse(course: Course) {
+    this.enrollForm.patchValue({ courseId: course.courseId });
+    this.selectedCourseName = course.title;
+    this.courseDropdownOpen = false;
+  }
+
+  selectLevel(level: string) {
+    this.enrollForm.patchValue({ experienceLevel: level });
+    this.selectedLevelName = level;
+    this.levelDropdownOpen = false;
+  }
+
   perks = [
     {
-      icon: '🎯',
+      icon: 'fa-solid fa-bullseye',
       title: 'Expert-Led Training',
       desc: 'Learn directly from industry professionals'
     },
     {
-      icon: '📜',
+      icon: 'fa-solid fa-certificate',
       title: 'Certificate of Completion',
       desc: 'Get a verified certificate upon finishing'
     },
     {
-      icon: '💡',
+      icon: 'fa-solid fa-lightbulb',
       title: 'Lifetime Access',
       desc: 'Access course materials anytime, forever'
     }

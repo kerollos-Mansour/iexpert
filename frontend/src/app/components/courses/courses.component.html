@@ -1,7 +1,7 @@
 <section class="courses-section" id="courses">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-badge">📚 Our Courses</span>
+      <span class="section-badge"><i class="fa-solid fa-book-open"></i> Our Courses</span>
       <h2 class="section-title">Learn From <span class="gradient-text">Industry Experts</span></h2>
       <p class="section-subtitle">Curated courses designed to take you from beginner to professional</p>
     </div>
@@ -12,13 +12,13 @@
     </div>
     
     <div class="error-state" *ngIf="error && !loading">
-      <p>⚠️ Could not load courses. Please try again later.</p>
+      <p><i class="fa-solid fa-triangle-exclamation"></i> Could not load courses. Please try again later.</p>
     </div>
     
     <div class="courses-grid" *ngIf="!loading && !error">
       <div class="course-card" *ngFor="let course of courses; let i = index">
         <div class="course-card-header" [class]="'header-' + (i % 4)">
-          <span class="course-icon">{{ icons[i % icons.length] }}</span>
+          <span class="course-icon"><i [class]="icons[i % icons.length]"></i></span>
           <span class="course-level-badge">{{ course.level || 'All Levels' }}</span>
         </div>
         <div class="course-card-body">

@@ -1,7 +1,7 @@
 <section class="instructors-section" id="instructors">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-badge">👨‍🏫 Meet the Team</span>
+      <span class="section-badge"><i class="fa-solid fa-chalkboard-user"></i> Meet the Team</span>
       <h2 class="section-title">Learn From <span class="gradient-text">The Best</span></h2>
       <p class="section-subtitle">Our instructors are industry practitioners with years of real-world experience</p>
     </div>
@@ -12,7 +12,7 @@
     </div>
     
     <div class="error-state" *ngIf="error && !loading">
-      <p>⚠️ Could not load instructors.</p>
+      <p><i class="fa-solid fa-triangle-exclamation"></i> Could not load instructors.</p>
     </div>
     
     <div class="instructors-grid" *ngIf="!loading && !error">

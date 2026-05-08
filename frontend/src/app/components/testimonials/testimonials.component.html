@@ -1,7 +1,7 @@
 <section class="testimonials-section" id="testimonials">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-badge">💬 Reviews</span>
+      <span class="section-badge"><i class="fa-solid fa-comments"></i> Reviews</span>
       <h2 class="section-title">What Our <span class="gradient-text">Students Say</span></h2>
       <p class="section-subtitle">Real feedback from real learners who transformed their careers</p>
     </div>
@@ -10,11 +10,17 @@
       <p>Loading reviews...</p>
     </div>
     <div class="error-state" *ngIf="error && !loading">
-      <p>⚠️ Could not load reviews. Please try again later.</p>
+      <p><i class="fa-solid fa-triangle-exclamation"></i> Could not load reviews. Please try again later.</p>
     </div>
     <div class="testimonials-grid" *ngIf="!loading && !error">
       <div class="testimonial-card" *ngFor="let t of testimonials">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
         <p class="testimonial-text">"{{ t.text }}"</p>
         <div class="testimonial-author">
           <div class="author-avatar" [style.background]="t.color">{{ t.initials }}</div>

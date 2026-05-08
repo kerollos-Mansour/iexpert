@@ -14,7 +14,16 @@ export class CoursesComponent implements OnInit {
   courses: Course[] = [];
   loading = true;
   error = false;
-  icons = ['💻', '☁️', '🔐', '📱', '🤖', '🧠', '🛠️', '📊'];
+  icons = [
+    'fa-solid fa-laptop-code', 
+    'fa-solid fa-cloud', 
+    'fa-solid fa-shield-halved', 
+    'fa-solid fa-mobile-screen-button', 
+    'fa-solid fa-robot', 
+    'fa-solid fa-brain', 
+    'fa-solid fa-screwdriver-wrench', 
+    'fa-solid fa-chart-line'
+  ];
 
   constructor(private courseService: CourseService) {}
 

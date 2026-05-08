@@ -1,14 +1,14 @@
 <section class="pricing-section" id="pricing">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-badge">💎 Pricing</span>
+      <span class="section-badge"><i class="fa-solid fa-gem"></i> Pricing</span>
       <h2 class="section-title">Simple, <span class="gradient-text">Transparent Pricing</span></h2>
       <p class="section-subtitle">Choose the plan that fits your learning goals. No hidden fees, ever.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card" *ngFor="let plan of plans" [class.popular]="plan.popular">
-        <div class="popular-badge" *ngIf="plan.popular">Most Popular ⭐</div>
-        <div class="plan-icon">{{ plan.icon }}</div>
+        <div class="popular-badge" *ngIf="plan.popular">Most Popular <i class="fa-solid fa-star"></i></div>
+        <div class="plan-icon"><i [class]="plan.icon"></i></div>
         <h3 class="plan-name">{{ plan.name }}</h3>
         <div class="plan-price">
           <span class="price-amount">{{ plan.price }}</span>
@@ -17,7 +17,7 @@
         <p class="plan-desc">{{ plan.desc }}</p>
         <ul class="plan-features">
           <li *ngFor="let feature of plan.features">
-            <span class="check">✓</span> {{ feature }}
+            <span class="check"><i class="fa-solid fa-check"></i></span> {{ feature }}
           </li>
         </ul>
         <a href="#enroll" class="plan-btn" [class.plan-btn-primary]="plan.popular">{{ plan.cta }}</a>
