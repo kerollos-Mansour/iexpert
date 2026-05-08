@@ -2,6 +2,29 @@
 
 iExperts Academy is a comprehensive **Educational Hub** designed to bridge the gap between aspiring learners and industry experts. The platform serves as a professional gateway where students can explore a curated list of tech courses, get to know their highly experienced instructors, and read verified testimonials from successful alumni. 
 
+---
+
+> [!NOTE]
+> ### 📧 Email Configuration (Optional)
+> The system includes a fully functional **Email Confirmation Service** for student enrollments.
+> - **If you don't need this feature:** You can simply ignore the SMTP settings and inspect the implementation in `Backend.Service/implementation/EmailService.cs`.
+> - **To enable the feature:** Update the `SMTP` section in `backend/Backend.API/appsettings.json`.
+>   - **Recommended Port:** Use `587` (for TLS/STARTTLS).
+>   - **App Password:** If using a provider with 2-Step Verification (like Gmail), you **must** use an "App Password" instead of your regular password.
+>   - **Example Config:**
+>     ```json
+>     "SMTP": {
+>       "Host": "smtp.yourprovider.com", // e.g., smtp.gmail.com
+>       "Port": 587,
+>       "Username": "your-email@example.com",
+>       "Password": "your-app-password",
+>       "EnableSsl": true,
+>       "FromEmail": "your-email@example.com"
+>     }
+>     ```
+
+---
+
 By leveraging a powerful **.NET 10** backend and a high-end **Angular 21** interface, iExperts Academy provides a streamlined path from discovery to enrollment, complete with automated notifications to guide students through their learning journey.
 
 ![Tech Stack](https://img.shields.io/badge/Stack-.NET%2010%20%2B%20Angular%2021-blue)
@@ -41,15 +64,6 @@ npm start
 - **🔄 Auto-Seeding:** The database is automatically populated with sample data on the first run.
 
 ---
-
-> [!IMPORTANT]
-> ### 📧 Email Confirmation — Working Feature (Credentials Required)
-> The email confirmation feature is **fully implemented** and working. However, the SMTP credentials were **intentionally left out** for security reasons.
-> To test it, open `backend/Backend.API/appsettings.json` and fill in your own Gmail credentials:
-> - **Username & FromEmail:** Your Gmail address.
-> - **Password:** A **16-character Gmail App Password** (not your regular password).
->   - Generate one here: [Google App Passwords](https://myaccount.google.com/apppasswords) *(requires 2-Step Verification to be enabled).*
-
 
 ## 🛠️ Tech Stack
 
