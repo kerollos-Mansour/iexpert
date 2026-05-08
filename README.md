@@ -25,7 +25,7 @@ iExperts Academy is a comprehensive **Educational Hub** designed to bridge the g
 
 ---
 
-By leveraging a powerful **.NET 10** backend and a high-end **Angular 21** interface, iExperts Academy provides a streamlined path from discovery to enrollment, complete with automated notifications to guide students through their learning journey.
+By leveraging a powerful **.NET 10** backend and a high-end **Angular 21** interface, iExperts Academy provides a streamlined path from discovery to enrollment. The platform is also fully integrated with the **iExperts official website ecosystem** via the footer, ensuring a cohesive brand experience.
 
 ![Tech Stack](https://img.shields.io/badge/Stack-.NET%2010%20%2B%20Angular%2021-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -60,7 +60,7 @@ npm start
 - **💎 Premium UI/UX:** Modern **Glassmorphism** design, custom animated dropdowns, and professional **Font Awesome 6** integration.
 - **🏗️ Clean Architecture:** The backend follows the **CQRS** pattern with **MediatR**, ensuring scalability and maintainability.
 - **📱 Fully Responsive:** Optimized for all devices, from desktops to mobile phones.
-- **🔗 Official Integration:** The Footer is fully integrated with **iExperts official website** links and social media platforms (LinkedIn, X, Facebook).
+- **🔗 iExperts Ecosystem Integration:** The Footer is meticulously integrated with the **iExperts official website**, providing seamless navigation to official resources, social media platforms (LinkedIn, X, Facebook), and community links.
 - **🔄 Auto-Seeding:** The database is automatically populated with sample data on the first run.
 
 ---
