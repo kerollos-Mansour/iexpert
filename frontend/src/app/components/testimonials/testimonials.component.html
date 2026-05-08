@@ -1,0 +1,22 @@
+<section class="testimonials-section" id="testimonials">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">💬 Reviews</span>
+      <h2 class="section-title">What Our <span class="gradient-text">Students Say</span></h2>
+      <p class="section-subtitle">Real feedback from real learners who transformed their careers</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let t of testimonials">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="testimonial-text">"{{ t.text }}"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" [style.background]="t.color">{{ t.initials }}</div>
+          <div>
+            <strong class="author-name">{{ t.name }}</strong>
+            <span class="author-role">{{ t.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
